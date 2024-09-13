@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
+import { styled } from 'nativewind';
+import './styles.css';
 
+const StyledView = styled(View)
+const StyledText = styled(Text)
 const App = () => {
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
@@ -29,11 +33,13 @@ const App = () => {
     }, []);
 
     return (
-        <View style={styles.container}>
-            <Text>Check The App Here!</Text>
-            {error ? <Text style={styles.error}>{error}</Text> : <Text>{message}</Text>}
-        </View>
-    );
+        <StyledView className="flex-1 items-center justify-center  mt-5 p-6 bg-white">
+            <StyledText className="text-slate-800 font-bold">Check The App Here!</StyledText>
+            <Text>Here is another part on the same application.</Text>
+            <StyledText className= " text-red-500"> Try this.</StyledText>
+            {error ? <Text >{error}</Text> : <Text>{message}</Text>}
+        </StyledView>
+    ); 
 };
 
 const styles = StyleSheet.create({
